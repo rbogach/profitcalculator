@@ -10,7 +10,9 @@ func main() {
 
 	ebt, profprofit, ratio := calculateFinancials(revenue, expenses, taxRate)
 
-	println(ebt, profprofit, ratio)
+	fmt.Printf("EBT"+"%.1f\n", ebt)
+	fmt.Printf("Porfit before Tax"+"%.1f\n", profprofit)
+	fmt.Printf("Ratio"+"%.1f\n", ratio)
 
 }
 
