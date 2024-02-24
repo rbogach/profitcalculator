@@ -3,21 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	var revenue float64
-	var expenses float64
-	var taxRate float64
-	var earningBeforeTax float64
-	var profit float64
 
-	revenue = inputRevenue()
-	expenses = inputExpenses()
-	taxRate = inputTaxRate()
-	earningBeforeTax = earningBeforeTaxF(revenue, expenses)
-	profit = profitF(earningBeforeTax, taxRate)
+	revenue := inputRevenue()
+	expenses := inputExpenses()
+	taxRate := inputTaxRate()
 
-	println(earningBeforeTax)
-	println(profit)
-	println(ratioF(earningBeforeTax, profit))
+	ebt, profprofit, ratio := calculateFinancials(revenue, expenses, taxRate)
+
+	println(ebt, profprofit, ratio)
 
 }
 
@@ -42,23 +35,10 @@ func inputTaxRate() float64 {
 	return taxRate
 }
 
-func earningBeforeTaxF(revenue float64, expenses float64) float64 {
+func calculateFinancials(revenue, expenses, taxRate float64) (float64, float64, float64) {
 	earningBeforeTax := revenue - expenses
-	println("Earnings before Tax")
-	return earningBeforeTax
-
-}
-
-func profitF(earningBeforeTax float64, taxRate float64) float64 {
 	profit := float64(earningBeforeTax) - taxRate
-	println("Profit -")
-	return profit
-}
-
-func ratioF(earningBeforeTax float64, profit float64) float64 {
 	ratio := float64(earningBeforeTax) / profit
-
-	println("Ratio is")
-	return ratio
+	return earningBeforeTax, profit, ratio
 
 }
