@@ -1,0 +1,3 @@
+%!s(float64=-1000)ebt
+%!d(float64=-1001.2) profit
+%!s(float64=0.9988014382740711) ratio
